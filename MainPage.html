@@ -13,11 +13,20 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Alex+Brush" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cairo" rel="stylesheet">
 
     <!-- CSS Files -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="assets/css/material-kit.css" rel="stylesheet" />
     <style>
+        .question {
+            word-wrap: break-word;
+            margin-bottom: -4px;
+            white-space: normal;
+            text-align: -webkit-auto;
+        }
+        
         .tile:hover {
             /*            background: #EEEEEE;*/
             transition: 0.3;
@@ -91,10 +100,10 @@
         .divider-color {
             border-color: #BDBDBD;
         }
+        
         .thumbnail {
             padding: 0px;
         }
-
     </style>
 
 
@@ -118,7 +127,23 @@
     <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
 
     <script>
+        /*Smooth link animation*/
+
         $(document).ready(function() {
+            $('a[href*=\\#]:not([href=\\#])').click(function() {
+
+                if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+
+                    var target = $(this.hash);
+                    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                    if (target.length) {
+                        $('html,body').animate({
+                            scrollTop: target.offset().top - 210
+                        }, 1000);
+                        return false;
+                    }
+                }
+            });
 
             $('.carousel').slick({
                 dots: true,
@@ -138,7 +163,6 @@
 
             });
         });
-
     </script>
 </head>
 
@@ -231,50 +255,12 @@
                             <li><a href="#">Page 6-3</a></li>
                         </ul>
                     </li>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 6
-        <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Page 7-1</a></li>
-                            <li><a href="#">Page 7-2</a></li>
-                            <li><a href="#">Page 7-3</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 8
-        <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Page 8-1</a></li>
-                            <li><a href="#">Page 8-2</a></li>
-                            <li><a href="#">Page 8-3</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 9
-        <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Page 9-1</a></li>
-                            <li><a href="#">Page 9-2</a></li>
-                            <li><a href="#">Page 9-3</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 10
-        <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Page 10-1</a></li>
-                            <li><a href="#">Page 10-2</a></li>
-                            <li><a href="#">Page 10-3</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 10
-        <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Page 11-1</a></li>
-                            <li><a href="#">Page 11-2</a></li>
-                            <li><a href="#">Page 11-3</a></li>
-                        </ul>
+
+
+                    <li>
+                        <a href="#youaskedus">
+                            <p>You asked us</p>
+                        </a>
                     </li>
 
                 </ul>
@@ -296,6 +282,7 @@
                         </div>
                     </div>
                 </div>
+
 
             </div>
         </div>
@@ -430,6 +417,41 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="col-md-" style="font-family: 'Cairo', sans-serif;font-size: -webkit-xxx-large;text-align: center;font-weight: 200;padding-bottom: 3%;padding-top: 1%;">
+                                You Asked Us..
+                                <button style="font-size: 15px;padding: 0%;margin: 0%;width: 0%;" class="btn btn-primary btn-simple" data-toggle="modal" data-target="#myModalHorizontal"><i class="material-icons">mode edit</i> ask</button>
+
+                            </div>
+
+                            <div style="height: 250px;overflow-x:hidden" id="youaskedus">
+                                <a class="btn btn-primary btn-lg btn-block btn-huge question" data-toggle="modal" data-target="#myModal">This is an akwardly long questoin akwardly long questoin akwardly long questoin </a>
+                                <a class="btn btn-primary btn-lg btn-block btn-huge question" data-toggle="modal" data-target="#myModal">This is an akwardly long questoin akwardly long questoin akwardly long questoin </a>
+                                <a class="btn btn-primary btn-lg btn-block btn-huge question" data-toggle="modal" data-target="#myModal">This is an akwardly long questoin akwardly long questoin akwardly long questoin </a>
+                                <a class="btn btn-primary btn-lg btn-block btn-huge question" data-toggle="modal" data-target="#myModal">This is an akwardly long questoin akwardly long questoin akwardly long questoin </a>
+                                <a class="btn btn-primary btn-lg btn-block btn-huge question" data-toggle="modal" data-target="#myModal">This is an akwardly long questoin akwardly long questoin akwardly long questoin </a>
+                                <a class="btn btn-primary btn-lg btn-block btn-huge question" data-toggle="modal" data-target="#myModal">This is an akwardly long questoin akwardly long questoin akwardly long questoin </a>
+                                <a class="btn btn-primary btn-lg btn-block btn-huge question" data-toggle="modal" data-target="#myModal">This is an akwardly long questoin akwardly long questoin akwardly long questoin </a>
+                                <a class="btn btn-primary btn-lg btn-block btn-huge question" data-toggle="modal" data-target="#myModal">This is an akwardly long questoin akwardly long questoin akwardly long questoin </a>
+                                <a class="btn btn-primary btn-lg btn-block btn-huge question" data-toggle="modal" data-target="#myModal">This is an akwardly long questoin akwardly long questoin akwardly long questoin </a>
+                                <a class="btn btn-primary btn-lg btn-block btn-huge question" data-toggle="modal" data-target="#myModal">This is an akwardly long questoin akwardly long questoin akwardly long questoin </a>
+                                <a class="btn btn-primary btn-lg btn-block btn-huge question" data-toggle="modal" data-target="#myModal">This is an akwardly long questoin akwardly long questoin akwardly long questoin </a>
+                                <a class="btn btn-primary btn-lg btn-block btn-huge question" data-toggle="modal" data-target="#myModal">This is an akwardly long questoin akwardly long questoin akwardly long questoin </a>
+                                <a class="btn btn-primary btn-lg btn-block btn-huge question" data-toggle="modal" data-target="#myModal">This is an akwardly long questoin akwardly long questoin akwardly long questoin </a>
+                                <a class="btn btn-primary btn-lg btn-block btn-huge question" data-toggle="modal" data-target="#myModal">This is an akwardly long questoin akwardly long questoin akwardly long questoin </a>
+                                <a class="btn btn-primary btn-lg btn-block btn-huge question" data-toggle="modal" data-target="#myModal">This is an akwardly long questoin akwardly long questoin akwardly long questoin </a>
+                                <a class="btn btn-primary btn-lg btn-block btn-huge question" data-toggle="modal" data-target="#myModal">This is an akwardly long questoin akwardly long questoin akwardly long questoin </a>
+
+
+                            </div>
+
+                        </div>
+                        <div class="col-md-6">
+                            <div style="font-family: 'Alex Brush', cursive;font-size: -webkit-xxx-large;text-align: center;font-weight: 200;padding-bottom: 3%;padding-top: 1%;">Quote of the Day</div>
+                            <img src="http://via.placeholder.com/575x250" alt=""></div>
+                    </div>
+
                 </div>
                 <!-- here you can add your content -->
             </div>
@@ -443,5 +465,77 @@
             </div>
         </footer>
     </div>
+    <!-- Modal Core -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">This is an akwardly long questoin akwardly long questoin akwardly long questoin ?</h4>
+                </div>
+                <div class="modal-body">
+                    Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default btn-simple" data-dismiss="modal">Close</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!--    modal for asking questions-->
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModalHorizontal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                       <span aria-hidden="true">&times;</span>
+                       <span class="sr-only">Close</span>
+                </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        Modal title
+                    </h4>
+                </div>
+
+                <!-- Modal Body -->
+                <div class="modal-body">
+
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="inputEmail3">Name</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="questionername" placeholder="Name" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="inputEmail3">Email</label>
+                            <div class="col-sm-10">
+                                <input type="email" class="form-control" id="inputEmail3" placeholder="Email" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="inputQuestion">Quesiton </label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control" rows="5" id="inputQuestion" placeholder="KEEP QUSTION CONSISE BE PATIENT WE WILL RESPOND AT EARLIEST"></textarea>
+                            </div>
+                        </div>
+
+                       
+                    </form>
+                </div>
+                <!-- Modal Footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Send <i class="material-icons">send</i></button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>
